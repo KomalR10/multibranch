@@ -25,7 +25,7 @@ pipeline {
                 script {
                    	bat "git config --add remote.origin.fetch +refs/heads/master:refs/remotes/origin/master"
 			bat "git fetch"
-                        def tag = sh(returnStdout: true, script: "git tag | tail -1").trim()
+                        def tag = bat(returnStdout: true, script: "git tag | tail -1").trim()
                         println tag
 //                        def semVerLib = load 'SemVer.groovy'
                         def version = getTagversion(tag)
